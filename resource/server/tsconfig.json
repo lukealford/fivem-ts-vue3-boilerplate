@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "../dist/server/",
+        "sourceMap": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "types": ["@citizenfx/server", "@types/node"],
+        "target": "es6",
+        "allowJs": true
+    },
+    "include": [
+        "./**/*"
+    ]
+}
