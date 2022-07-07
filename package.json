@@ -1,0 +1,20 @@
+{
+  "name": "fivem-ts-vue3-boilerplate",
+  "version": "1.0.0",
+  "description": "A Typescript resource using Vue3, Pinia and Tailwindcss for UI Boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukealford/fivem-ts-vue3-boilerplate.git"
+  },
+  "author": "lukealford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukealford/fivem-ts-vue3-boilerplate/issues"
+  },
+  "homepage": "https://github.com/lukealford/fivem-ts-vue3-boilerplate#readme"
+}
