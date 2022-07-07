@@ -1,0 +1,1 @@
+cd resource && npm run watch
