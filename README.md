@@ -1,6 +1,6 @@
 ## FiveM Typescript + Vue3 Resource Boilerplate
 
-A basic typescript + Vue3 boilerplater to jumpstart your FiveM resource and nui devleopment
+A basic typescript + Vue3 boilerplater to jumpstart your FiveM resource and nui development
 
  #### Development
  Install packages, run the following from the root folder 
