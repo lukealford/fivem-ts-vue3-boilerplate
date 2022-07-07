@@ -7,7 +7,7 @@ dependency 'yarn'
 vue_entry 'ui/src/main.ts'
 
 name 'Typescript Resource'
-description 'A Typescript resource using Vue3, Pinia and tailwindcss for UI Boilerplate'
+description 'A Typescript resource using Vue3, Pinia and Tailwindcss for UI Boilerplate'
 author 'fingerguns#0001'
 
 client_scripts {
