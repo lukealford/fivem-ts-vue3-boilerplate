@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useCounter } from "../use/useCounter";
+import { useCounter } from "../stores/useCounter";
 
 export default defineComponent({
   name: "Counter",

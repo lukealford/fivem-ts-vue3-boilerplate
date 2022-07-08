@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build:resource && cd ui && npm run build",
+    "build": "npm run build:resource && npm run build:ui",
     "build:resource": "webpack --mode production",
     "build:ui": "cd ui && vue-tsc --noEmit && vite build",
     "dev:resource": "webpack --mode development --watch",
