@@ -6,7 +6,7 @@ export const useApp = defineStore("app", {
   state: () => {
     return {
       // all these properties will have their type inferred automatically
-      visible: true,
+      visible: false,
     };
   },
 });
