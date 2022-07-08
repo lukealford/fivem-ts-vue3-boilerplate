@@ -1,7 +1,8 @@
 const webpack = require("webpack");
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const buildPath = path.resolve(__dirname, "dist");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const buildPath = path.resolve(__dirname, "./dist");
 const { ESBuildMinifyPlugin } = require("esbuild-loader");
 
 const client = {
@@ -26,7 +27,17 @@ const client = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "**/*.lua",
+          context: path.resolve(__dirname, "client"),
+        },
+      ],
+    }),
+  ],
   optimization: {
     minimizer: [
       new ESBuildMinifyPlugin({
@@ -58,7 +69,17 @@ const server = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "**/*.lua",
+          context: path.resolve(__dirname, "server"),
+        },
+      ],
+    }),
+  ],
   optimization: {
     minimizer: [
       new ESBuildMinifyPlugin({

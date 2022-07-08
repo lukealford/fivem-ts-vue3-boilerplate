@@ -4,10 +4,8 @@ A basic typescript + Vue3 boilerplater to jumpstart your FiveM resource and nui 
 
  #### Development
  Install packages, run the following from the root folder 
- ```
- cd resource && npm i
- cd ui && npm i
- ```
+
+`npm i`
  
 and then to start your dev enviroment
 
@@ -21,6 +19,14 @@ and then to start your dev enviroment
  To build for production run the following from the root folder
 
  `npm run build`
+
+ To build just the resource 
+
+ `npm run build:resource`
+
+ To build just the ui
+
+ `npm run build:ui`
 
 
 
