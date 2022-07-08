@@ -11,17 +11,19 @@ description 'A Typescript resource using Vue3, Pinia and Tailwindcss for UI Boil
 author 'fingerguns#0001'
 
 client_scripts {
-    'resource/dist/client/client.js'
+    'dist/client/client.js',
+    'dist/client/*.lua
 }
 
 server_scripts {
-    'resource/dist/server/server.js'
+    'dist/server/server.js',
+    'dist/server/*.lua
 }
 
-ui_page 'ui/dist/index.html'
+ui_page 'dist/ui/index.html'
 
 files { 
-    'ui/dist/index.html',
-    'ui/dist/index.js',
-    'ui/dist/style.css'
+    'dist/ui/index.html',
+    'dist/ui/assets/*.js',
+    'dist/ui/assets/*.css'
 }
