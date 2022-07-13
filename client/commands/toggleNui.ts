@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import {RegisterNuiCB} from '../helpers/utils'
+
 interface Show {
   focus: boolean;
   cursor: boolean;
@@ -23,14 +26,11 @@ RegisterCommand(
   "showNui", //Chnage this command name to match your resource
   async (source: number, args: string[]) => {
     toggleNui(focusState);
-    console.log("Show NUI frame", source, args);
   },
   false
 );
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-on("closeNui", function (data: Show, cb: Function) {
+RegisterNuiCB('closeNui', () => {
   toggleNui(focusState);
-  console.log("Hide NUI frame", focusState.cursor, focusState.focus);
-  cb(focusState);
 });
+

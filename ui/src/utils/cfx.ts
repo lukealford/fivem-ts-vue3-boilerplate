@@ -1,22 +1,36 @@
-export const cfx = {
-  get: async (handler: string, data?: any[], response = true) => {
-    const resource = location.host;
-    const args = data ?? [];
-    const task = fetch(`https://${resource}/${handler}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify({ args: args.map((self) => JSON.stringify(self)) }),
-    });
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/**
+ * Simple wrapper around fetch API tailored for CEF/NUI use.
+ * @param eventName - The endpoint eventname to target
+ * @param data - Data you wish to send in the NUI Callback
+ *
+ * @return returnData - A promise for the data sent back by the NuiCallbacks CB argument
+ */
 
-    if (response) {
-      return await task
-        .then((res) => res.json())
-        .then((res) => (res ? JSON.parse(res) : res));
-    }
-  },
-  post: (url: string, data?: any[]) => {
-    cfx.get(url, data, false);
-  },
-};
+ 
+ async function fetchNui<T = any, D = any>(
+   eventName: string,
+   data?: D,
+   resource?: string,
+ ): Promise<T> {
+   const options = {
+     method: 'post',
+     headers: {
+       'Content-Type': 'application/json; charset=UTF-8',
+     },
+     body: JSON.stringify(data),
+   };
+ 
+   const resName = resource ? resource : (window as any).GetParentResourceName();
+ 
+   const resourceName = (window as any).GetParentResourceName ? resName : 'npwd';
+ 
+   const resp = await fetch(`https://${resourceName}/${eventName}`, options);
+ 
+   const responseObj = await resp.json();
+   
+   return responseObj;
+ }
+ 
+ export default fetchNui;
+ 

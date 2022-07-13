@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import { cfx } from "../utils/cfx";
+import fetchNui from "../utils/cfx";
 
 export default defineComponent({
   name: "CloseNUI",
   setup() {
     const close = () => {
-      cfx.get("closeNui", [false], false);
+      fetchNui("closeNui");
     };
     return {
       close,

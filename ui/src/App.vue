@@ -1,42 +1,26 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-import { useApp } from "./stores/useApp";
+<script setup lang="ts">
+  import { ref } from "vue";
+  import HelloWorld from "./components/HelloWorld.vue";
+  import Counter from "./components/Counter.vue";
+  import Close from "./components/CloseNUI.vue";
 
-import HelloWorld from "./components/HelloWorld.vue";
-import Counter from "./components/Counter.vue";
-import Close from "./components/CloseNUI.vue";
+  const appVisible = ref(false) 
+  window.addEventListener("message", (event) => {
+    const action = event.data.action;
+    const key = event.data.key;
+    const params = event.data.params;
 
-export default defineComponent({
-  name: "App",
+    console.log(`action: ${action}, key: ${key}, params: ${params}`)
 
-  components: {
-    HelloWorld,
-    Counter,
-    Close,
-  },
+    if (action === "toggleNui") {
+      appVisible.value = params;
+    }
 
-  setup() {
-    const store = useApp();
-
-    window.addEventListener("message", (event) => {
-      const action = event.data.action;
-
-      if (action === "toggleNui") {
-        const key = event.data.key;
-        const params = event.data.params;
-        if (key && params) store.$patch({ visible: params });
-      }
-    });
-
-    return {
-      store,
-    };
-  },
-});
+  });
 </script>
 
 <template>
-  <div v-if="store.visible" class="container mx-auto text-center pt-4">
+  <div v-if="appVisible" class="container mx-auto text-center pt-4">
     <div class="flex w-full pb-4">
       <Close class="justify-end" />
     </div>
