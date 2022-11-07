@@ -7,6 +7,8 @@
  * @return returnData - A promise for the data sent back by the NuiCallbacks CB argument
  */
 
+import { config } from '../../../config'
+
  
  async function fetchNui<T = any, D = any>(
    eventName: string,
@@ -23,7 +25,7 @@
  
    const resName = resource ? resource : (window as any).GetParentResourceName();
  
-   const resourceName = (window as any).GetParentResourceName ? resName : 'npwd';
+   const resourceName = (window as any).GetParentResourceName ? resName : config.name;
  
    const resp = await fetch(`https://${resourceName}/${eventName}`, options);
  
